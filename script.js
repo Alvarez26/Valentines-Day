@@ -1,13 +1,35 @@
-document.getElementById("yesBtn").addEventListener("click", function() {
-    document.getElementById("response").innerText = "YAAAAAAAY! Now turn around and take your flowers Honey <3 🎉💖";
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const responseDiv = document.getElementById("response");
+const imageContainer = document.getElementById("image-container");
+
+// Phrases for the "No" button (in order)
+const phrases = [
+    "Wrong button honey hehehe",
+    "Oop's you clicked the wrong button again bae bae",
+    "Here's a hint my love... CLICK YES",
+    "Bae what the fuck D: 😭",
+    "HONEY WHAT YOU DOING",
+    "Okokok no more NO button >:D"
+];
+
+let noClickCount = 0; // Track the number of clicks
+
+// "Yes" button event listener
+yesBtn.addEventListener("click", function () {
+    responseDiv.innerHTML = "YAAAAAAY! 💖 I love you! Now turn around and take your flowers Honey";
+    imageContainer.style.display = "block";
 });
 
-let noBtn = document.getElementById("noBtn");
-let phrases = ["Oops you misclicked heheh", "Here let me help you, CLICK YES....hehehehe", "Bae what the fuck D:?"];
-let count = 0;
-
-noBtn.addEventListener("click", function() {
-    alert("Oh, you misclicked! Try again sugarshitz <3");
-    noBtn.innerText = phrases[count % phrases.length];
-    count++;
+// "No" button event listener
+noBtn.addEventListener("click", function () {
+    if (noClickCount < phrases.length) {
+        
+        // Change the button text to the next phrase
+        noBtn.innerText = phrases[noClickCount];
+        noClickCount++; // Move to the next phrase
+    } else {
+        // On the 5th click, make the "No" button disappear
+        noBtn.style.display = "none";
+    }
 });

@@ -1,13 +1,15 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #ffe6e6;
+    background-color: pink;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
+
 
 .container {
     background: white;
@@ -16,6 +18,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 90%;
     width: 400px;
+    position: relative;
 }
 
 h1 {
@@ -47,7 +50,7 @@ button {
 }
 
 #noBtn {
-    background-color: pink;
+    background-color: #cccccc;
     color: white;
 }
 
@@ -56,4 +59,82 @@ button {
     color: #ff4081;
     margin-top: 20px;
     font-weight: bold;
+}
+
+
+#image-container {
+    display: none;
+    margin-top: 20px;
+    position: relative;
+}
+
+
+.valentine-img {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top: 0;
+}
+
+.left {
+    left: -140px;
+    animation: UpDown 2s infinite alternate ease-in-out;
+}
+
+@keyframes UpDown {
+    from{
+        transform: translateY(-400px); 
+    }
+    to{
+        transform: translateY(1px); 
+    }
+}
+
+.right {
+    right: -140px;
+    animation: DownUp 2s infinite alternate ease-in-out;
+
+}
+@keyframes DownUp {
+    from{
+        transform: translateY(1px); 
+    }
+    to{
+        transform: translateY(-400px); 
+    }
+}
+.gif2   {
+    width: 150px;
+    position: fixed;
+    top: 5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    animation: Up 2s infinite alternate ease-in-out;
+}
+@keyframes Up {
+    from {
+        transform: translateX(-50%) translateX(200px);
+    }
+    to {
+        transform: translateX(-50%) translateX(-200px);
+    }
+}
+
+
+.gif1 {
+    width: 150px;
+    position: fixed;
+    bottom: 5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveSideToSide 2s infinite alternate ease-in-out;
+}
+
+@keyframes moveSideToSide {
+    from {
+        transform: translateX(-50%) translateX(-200px);
+    }
+    to {
+        transform: translateX(-50%) translateX(200px);
+    }
 }
